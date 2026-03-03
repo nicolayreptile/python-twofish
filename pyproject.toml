@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "twofish"
+requires-python = ">=3.11"
+version = "0.4.0"
+description = "Bindings for the Twofish implementation by Niels Ferguson"
+readme = "README.rst"
+license = {text = "BSD-3-Clause"}
+authors = [
+    { name = "Filippo Valsorda", email = "filippo.valsorda@gmail.com" }
+]
+urls = { Homepage = "https://github.com/nicolayreptile/python-twofish", Original = "https://github.com/keybase/python-twofish" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries",
+]

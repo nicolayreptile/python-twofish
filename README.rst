@@ -3,7 +3,7 @@ python-twofish
 
 Bindings for the Twofish implementation by Niels Ferguson libtwofish-dev_.
 
-Compatible with Python 2.6, 2.7 and 3.3.
+Compatible with Python 3.11+.
 
 The library performs a self-test at each import.
 
@@ -21,7 +21,7 @@ Usage
 
 Create a ``twofish.Twofish`` instance with a key of length ]0, 32] and then use the ``encrypt`` and ``decrypt`` methods on 16 bytes blocks.
 
-All values must be binary strings (``str`` on Python 2, ``bytes`` on Python 3)
+All values must be ``bytes``.
 
 **[WARNING]** this should be used in a senseful cipher mode, like CTR or CBC. If you don't know what this mean, you should probably usa a higher level library.
 

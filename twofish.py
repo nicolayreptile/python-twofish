@@ -8,15 +8,19 @@ Copyright (c) 2013 Keybase
 Python module and ctypes bindings
 """
 
-import imp
-import sys
+import importlib.util
 
 from ctypes import (cdll, Structure,
                     POINTER, pointer,
                     c_char_p, c_int, c_uint32,
                     create_string_buffer)
 
-_twofish = cdll.LoadLibrary(imp.find_module('_twofish')[1])
+
+_spec = importlib.util.find_spec('_twofish')
+if _spec is None or _spec.origin is None:
+    raise ImportError('_twofish extension not found')
+_twofish = cdll.LoadLibrary(_spec.origin)
+
 
 class _Twofish_key(Structure):
     _fields_ = [("s", (c_uint32 * 4) * 256),
@@ -48,10 +52,9 @@ _Twofish_decrypt.restype = None
 
 _Twofish_initialise()
 
-IS_PY2 = sys.version_info < (3, 0, 0, 'final', 0)
 
 def _ensure_bytes(data):
-    if (IS_PY2 and not isinstance(data, str)) or (not IS_PY2 and not isinstance(data, bytes)):
+    if not isinstance(data, bytes):
         raise TypeError('can not encrypt/decrypt unicode objects')
 
 
