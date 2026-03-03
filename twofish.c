@@ -42,5 +42,4 @@ DL_EXPORT(void) exp_Twofish_decrypt(Twofish_key * xkey, uint8_t c[16], uint8_t p
 We need a stub init_twofish function so the module will link as a proper module.
 Do not import _twofish from python; it will not work since _twofish is not a *real* module
 */
-PyMODINIT_FUNC init_twofish(void) { }
-PyMODINIT_FUNC PyInit__twofish(void) { }
+PyMODINIT_FUNC PyInit__twofish(void) { Py_RETURN_NONE; }
